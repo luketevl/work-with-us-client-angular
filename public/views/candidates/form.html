@@ -1,0 +1,69 @@
+<div class="container dobra">
+  <header class="bg-homes">
+  </header>
+    <form name="candidateForm">
+      <div layout="row">
+        <div layout="column" flex="50">
+          <md-input-container class="md-block" flex-gt-sm flex>
+            <label>Nome</label>
+            <input required name="name" ng-model="candidate.name" />
+            <div ng-messages="candidateForm.name.$error">
+              <div ng-message="required">Nome é obrigatório.</div>
+            </div>
+          </md-input-container>
+
+          <!-- Email -->
+          <md-input-container class="md-block" flex-gt-sm flex>
+            <label>E-mail</label>
+            <input type="email" required name="email" ng-model="candidate.email" />
+            <div ng-messages="candidateForm.email.$error">
+              <div ng-message="required">E-mail é obrigatório.</div>
+            </div>
+          </md-input-container>
+          <!-- END email -->
+
+          <!-- Telefone -->
+          <md-input-container class="md-block" flex-gt-sm flex>
+            <label>Telefone</label>
+            <input name="phone" ng-model="candidate.phone" />
+          </md-input-container>
+          <!-- END telefone-->
+
+          <md-content layout-padding>
+            <div layout-gt-xs="row">
+              <!-- Data de nascimento -->
+              <md-input-container>
+                <label>Data de nascimento</label>
+                <md-datepicker ng-model="candidate.birthday"></md-datepicker>
+              </md-input-container>
+              <!-- END nascimento -->
+
+              <!-- Setor -->
+              <md-input-container class="md-block" flex-gt-xs="">
+                <label>Setor Desejado</label>
+                <md-select ng-model="candidate.area">
+                  <md-option ng-repeat="area in areas" value="{{area._id}}">
+                    {{area.name}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </md-content>
+        </div>
+          <!-- END setor -->
+
+          <div flex="5" hide-xs hide-sm>
+            <!-- Spacer //-->
+          </div>
+          <div layout="row" flex="45">
+          <md-input-container class="md-block" flex-gt-sm flex>
+            <label>Fale um pouco sobre você, seus desafios, sonhos e conquistas</label>
+            <textarea ng-model="candidate.bio" md-maxlength="150" rows="8" md-select-on-focus></textarea>
+          </md-input-container>
+        </div>
+        <div class="itens-box">
+        <button class="btn btn-blue">Cadastrar</button>
+        </div>
+      </div>
+    </form>
+</div>
